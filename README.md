@@ -25,7 +25,6 @@ Follow these instructions to set up and run the Products WordPress Plugin on you
 Ensure you have the following prerequisites installed:
 
 - [WordPress](https://wordpress.org/download/)
-- [Any additional dependencies or plugins]
 
 ### Installation
 
