@@ -1,11 +1,11 @@
 <?php
 /*Plugin Name: products plugin
-Plugin URI: http://siteyar.net/plugins/
+Plugin URI: https://github.com/sadeq-yaqobi/products-wordpress-plugin/
 Description: پلاگین محصولات ساخته شده با ایجکس
 Author: sadeq yaqobi
 Version: 1.0.0
 License: GPLv2 or later
-Author URI: http://siteyar.net/sadeq-yaqobi/ */
+Author URI: https://github.com/sadeq-yaqobi/ */
 
 
 defined('ABSPATH') || exit();
@@ -55,20 +55,20 @@ function activate_wp_ajax_plugin()
 //registering style and js
 function wps_register_style_js()
 {
-//    registering style
-   if(is_admin()){
-       wp_register_style('bootstrap-5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css', '', '5.0.2');
-       wp_register_style('bootstrap-icon', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css', '', '1.11.2');
-       wp_register_style('fontawesome-icon', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css', '', '5.15.4');
-       wp_register_style('main-style', WPA_PLUGIN_ASSETS_URL . 'css/main-style.css', '', '1.0.0');
-       wp_enqueue_style('bootstrap-5');
-       wp_enqueue_style('bootstrap-icon');
-       wp_enqueue_style('fontawesome-icon');
-       wp_enqueue_style('main-style');
-   }
+    //    registering style
+    if (is_admin()) {
+        wp_register_style('bootstrap-5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css', '', '5.0.2');
+        wp_register_style('bootstrap-icon', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css', '', '1.11.2');
+        wp_register_style('fontawesome-icon', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css', '', '5.15.4');
+        wp_register_style('main-style', WPA_PLUGIN_ASSETS_URL . 'css/main-style.css', '', '1.0.0');
+        wp_enqueue_style('bootstrap-5');
+        wp_enqueue_style('bootstrap-icon');
+        wp_enqueue_style('fontawesome-icon');
+        wp_enqueue_style('main-style');
+    }
     //registering js
     if (is_admin()) {
-        wp_register_script('sweet-alert-js','https://cdn.jsdelivr.net/npm/sweetalert2@11', '', '2.11.0',['strategy' => 'async', 'in_footer' => true]);
+        wp_register_script('sweet-alert-js', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', '', '2.11.0', ['strategy' => 'async', 'in_footer' => true]);
         wp_register_script('dashboard-js', WPA_PLUGIN_ASSETS_URL . 'js/dashboard-js.js', ['jquery'], '1.0.0', ['strategy' => 'defer', 'in_footer' => false]);
         wp_register_script('dashboard-ajax-js', WPA_PLUGIN_ASSETS_URL . 'js/dashboard-ajax.js', ['jquery'], '1.0.0', ['strategy' => 'defer', 'in_footer' => true]);
         wp_enqueue_script('sweet-alert-js');
@@ -78,10 +78,10 @@ function wps_register_style_js()
         wp_register_script('main-js', WPA_PLUGIN_ASSETS_URL . 'js/main-js.js', ['jquery'], '1.0.0', ['strategy' => 'defer', 'in_footer' => false]);
         wp_enqueue_script('main-js');
     }
-        wp_register_script('bootstrap-5-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', '', '5.3.2', ['strategy' => 'defer', 'in_footer' => false]);
-        wp_enqueue_script('bootstrap-5-js');
+    wp_register_script('bootstrap-5-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', '', '5.3.2', ['strategy' => 'defer', 'in_footer' => false]);
+    wp_enqueue_script('bootstrap-5-js');
 
-//    localize script
+    //    localize script
     wp_localize_script('dashboard-ajax-js', 'ajax', [
         'ajaxurl' => admin_url('admin-ajax.php'),
         '_nonce' => wp_create_nonce()
@@ -92,6 +92,6 @@ add_action('wp_enqueue_scripts', 'wps_register_style_js');
 add_action('admin_enqueue_scripts', 'wps_register_style_js');
 
 if (is_admin()) {
-    include WPA_PLUGIN_INC.'admin/menus.php';
-    include WPA_PLUGIN_INC.'admin/products.php';
+    include WPA_PLUGIN_INC . 'admin/menus.php';
+    include WPA_PLUGIN_INC . 'admin/products.php';
 }
